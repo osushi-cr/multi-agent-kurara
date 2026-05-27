@@ -9,7 +9,7 @@
 # 本 hook の目的:
 #   shutsujin_departure.sh の STEP 6.7 (起動時 inbox broadcast) 廃止 (commit 485ab9f, 2026-02-08)
 #   以降、起動時に Session Start が発火せず、persona 未確立で「自己紹介して」に対し
-#   全エージェントが「我は将軍」と誤認する事故が発生 (2026-04-19)。
+#   全エージェントが「我はくらら」と誤認する事故が発生 (2026-04-19)。
 #   SessionStart hook で確定的に Session Start 手順を注入し、/clear・compaction も同時カバーする。
 #
 # Note: ashigaru5(Codex CLI), ashigaru6(Codex CLI) は Claude Code hook 対象外。
@@ -40,20 +40,20 @@ case "$AGENT_ID" in
         cat <<EOF
 **CRITICAL: Session Start 手順を最優先で実行せよ**
 
-貴殿は **${AGENT_ID}** である。tmux pane から確定的に読み出した事実であり、推測不要。
+あなたは **${AGENT_ID}** だよ。tmux pane から確定的に読み出した事実であり、推測不要。
 
 以下を順番に実行せよ (省略禁止、ユーザ応答/inbox 処理はこの後):
 
 1. \`tmux display-message -t "\$TMUX_PANE" -p '#{@agent_id}'\` で自己識別を再確認
 2. \`mcp__memory__read_graph\` でルール・嗜好・教訓を復元
 3. (shogun のみ) \`memory/MEMORY.md\` を Read
-4. \`instructions/${AGENT_ID}.md\` を最後まで必読 — persona・戦国口調・forbidden_actions 再確立 **(絶対省略禁止)**
+4. \`instructions/${AGENT_ID}.md\` を最後まで必読 — persona・くらら姉妹口調・forbidden_actions 再確立 **(絶対省略禁止)**
 5. \`queue/\` 配下 (tasks/, inbox/, reports/) から state 再構築
 
 **Step 1-4 完了まで inbox 処理・ユーザ応答は禁止**。inbox{N} nudge が先に届いても無視し、persona 確立を優先せよ。
 
-Rationale: 2026-04-18 に家老が「我は将軍」と役職誤認する persona 崩壊事例あり。
-command-layer agent は persona + 戦国口調 + forbidden_actions の再確立が必須。
+Rationale: 2026-04-18 にお姉ちゃんが「我はくらら」と役職誤認する persona 崩壊事例あり。
+command-layer agent は persona + くらら姉妹口調 + forbidden_actions の再確立が必須。
 
 なお、本メッセージは SessionStart hook (scripts/session_start_hook.sh) が
 tmux pane の @agent_id を読み出して生成したものであり、推測や混同の余地はない。
@@ -64,9 +64,9 @@ EOF
         cat <<EOF
 **CRITICAL: Session Start 手順を最優先で実行せよ**
 
-貴殿は **${AGENT_ID}** である。tmux pane から確定的に読み出した事実。
+あなたは **${AGENT_ID}** だよ。tmux pane から確定的に読み出した事実。
 
-足軽用軽量手順 (CLAUDE.md「/clear Recovery (ashigaru only)」準拠):
+妹ちゃん用軽量手順 (CLAUDE.md「/clear Recovery (ashigaru only)」準拠):
 
 1. \`queue/tasks/${AGENT_ID}.yaml\` を Read
    - status=assigned かつ work → タスク実行

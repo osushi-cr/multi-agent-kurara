@@ -59,7 +59,7 @@ Karo must move the entire YAML entry to `queue/shogun_to_karo_archive.yaml`.
 - `in_progress` — acknowledged, being worked
 - `done` — complete (covers former "completed", "superseded", "active")
 - `cancelled` — intentionally stopped, will not resume
-- `paused` — stopped by Lord's decision, may resume later
+- `paused` — stopped by お兄ちゃん's decision, may resume later
 
 Any other status value (e.g., `completed`, `active`, `superseded`) is
 forbidden. If found during archive, normalize to the canonical set above.
@@ -100,7 +100,7 @@ Note:
   - Allowed: Karo moves it to an `ashigaruN.yaml` as `assigned` after prerequisites complete
   - Forbidden: pre-assigning to ashigaru before ready
 
-### NTFY Inbox (Lord phone): `queue/ntfy_inbox.yaml`
+### NTFY Inbox (お兄ちゃん phone): `queue/ntfy_inbox.yaml`
 
 - `pending`: needs processing
   - Allowed: Shogun processes and sets `processed`
@@ -112,7 +112,7 @@ Note:
 
 ## Immediate Delegation Principle (Shogun)
 
-**Delegate to Karo immediately and end your turn** so the Lord can input next command.
+**Delegate to Karo immediately and end your turn** so お兄ちゃん can input next command.
 
 ```
 Lord: command → Shogun: write YAML → inbox_write → END TURN
@@ -159,7 +159,7 @@ Cross-reference with dashboard.md — process any reports not yet reflected.
 
 ## Foreground Block Prevention (24-min Freeze Lesson)
 
-**Karo blocking = entire army halts.** On 2026-02-06, foreground `sleep` during delivery checks froze karo for 24 minutes.
+**Karo blocking = entire team halts.** On 2026-02-06, foreground `sleep` during delivery checks froze karo for 24 minutes.
 
 **Rule: NEVER use `sleep` in foreground.** After dispatching tasks → stop and wait for inbox wakeup.
 
@@ -194,7 +194,7 @@ date "+%Y-%m-%dT%H:%M:%S"    # For YAML (ISO 8601)
 Rule:
 - Run the same checks as GitHub Actions *before* committing.
 - Only commit when checks are OK.
-- Ask the Lord before any `git push`.
+- Ask お兄ちゃん before any `git push`.
 
 Minimum local checks:
 ```bash

@@ -2,9 +2,9 @@
 
 # multi-agent-shogun
 
-**Command your AI army like a feudal warlord.**
+**Your AI sister team, ready to help Oniichan!**
 
-Run 10 AI coding agents in parallel — **Claude Code, OpenAI Codex, GitHub Copilot, Kimi Code, OpenCode** — orchestrated through a samurai-inspired hierarchy with zero coordination overhead.
+Run 10 AI coding agents in parallel — **Claude Code, OpenAI Codex, GitHub Copilot, Kimi Code, OpenCode** — orchestrated through a sister team hierarchy with zero coordination overhead.
 
 **Talk Coding, not Vibe Coding. Speak to your phone, AI executes.**
 
@@ -18,15 +18,15 @@ Run 10 AI coding agents in parallel — **Claude Code, OpenAI Codex, GitHub Copi
 </div>
 
 <p align="center">
-  <img src="images/screenshots/hero/latest-translucent-20260210-190453.png" alt="Latest translucent command session in the Shogun pane" width="940">
+  <img src="images/screenshots/hero/latest-translucent-20260210-190453.png" alt="Latest translucent command session in the Kurara pane" width="940">
 </p>
 
 <p align="center">
-  <img src="images/screenshots/hero/latest-translucent-20260208-084602.png" alt="Quick natural-language command in the Shogun pane" width="420">
-  <img src="images/company-creed-all-panes.png" alt="Karo and Ashigaru panes reacting in parallel" width="520">
+  <img src="images/screenshots/hero/latest-translucent-20260208-084602.png" alt="Quick natural-language command in the Kurara pane" width="420">
+  <img src="images/company-creed-all-panes.png" alt="Oneesan and Imoto-chan panes reacting in parallel" width="520">
 </p>
 
-<p align="center"><i>One Karo (manager) coordinating 7 Ashigaru (workers) + 1 Gunshi (strategist) — real session, no mock data.</i></p>
+<p align="center"><i>One Oneesan (manager) coordinating 7 Imoto-chan (workers) + 1 Sanbo-chan (analyst) — real session, no mock data.</i></p>
 
 ---
 
@@ -45,11 +45,11 @@ bash shutsujin_departure.sh                # launch all agents
 
 > For full install steps (incl. Windows) and the first-30-minutes walkthrough, see [🚀 Quick Start](#-quick-start) and the basic usage section below.
 
-Type a command in the Shogun pane:
+Type a command in the Kurara pane:
 
 > "Build a REST API for user authentication"
 
-Shogun delegates → Karo breaks it down → 7 Ashigaru execute in parallel.
+Kurara delegates → Oneesan breaks it down → 7 Imoto-chan execute in parallel.
 You watch the dashboard. That's it.
 
 > **Want to go deeper?** The rest of this README covers architecture, configuration, memory design, and multi-CLI setup.
@@ -58,41 +58,41 @@ You watch the dashboard. That's it.
 
 ## What is this?
 
-**multi-agent-shogun** is a system that runs multiple AI coding CLI instances simultaneously, orchestrating them like a feudal Japanese army. Supports **Claude Code**, **OpenAI Codex**, **GitHub Copilot**, **Kimi Code**, and **OpenCode**.
+**multi-agent-shogun** is a system that runs multiple AI coding CLI instances simultaneously, orchestrating them as a sister team. Supports **Claude Code**, **OpenAI Codex**, **GitHub Copilot**, **Kimi Code**, and **OpenCode**.
 
 **Why use it?**
-- One command spawns 7 AI workers + 1 strategist executing in parallel
+- One command spawns 7 AI workers + 1 analyst executing in parallel
 - Zero wait time — give your next order while tasks run in the background
 - AI remembers your preferences across sessions (Memory MCP)
 - Real-time progress on a dashboard
 
 ```
-        You (上様 / The Lord)
+        You (Oniichan)
              │
              ▼  Give orders
       ┌─────────────┐
-      │   SHOGUN    │  ← Receives your command, delegates instantly
+      │   KURARA    │  ← Receives your command, delegates instantly
       └──────┬──────┘
              │  YAML + tmux
       ┌──────▼──────┐
-      │    KARO     │  ← Distributes tasks to workers
+      │   ONEESAN   │  ← Distributes tasks to workers
       └──────┬──────┘
              │
-    ┌─┬─┬─┬─┴─┬─┬─┬─┬────────┐
-    │1│2│3│4│5│6│7│ GUNSHI │  ← 7 workers + 1 strategist
-    └─┴─┴─┴─┴─┴─┴─┴────────┘
-       ASHIGARU      軍師
+    ┌─┬─┬─┬─┴─┬─┬─┬─┬──────────┐
+    │1│2│3│4│5│6│7│ SANBO-CHAN │  ← 7 workers + 1 analyst
+    └─┴─┴─┴─┴─┴─┴─┴──────────┘
+      IMOTO-CHAN      分析担当
 ```
 
 ---
 
-## Why Shogun?
+## Why Kurara?
 
-Most multi-agent frameworks burn API tokens on coordination. Shogun doesn't.
+Most multi-agent frameworks burn API tokens on coordination. Kurara doesn't.
 
 | | Claude Code `Task` tool | Claude Code Agent Teams | LangGraph | CrewAI | **multi-agent-shogun** |
 |---|---|---|---|---|---|
-| **Architecture** | Subagents inside one process | Team lead + teammates (JSON mailbox) | Graph-based state machine | Role-based agents | Feudal hierarchy via tmux |
+| **Architecture** | Subagents inside one process | Team lead + teammates (JSON mailbox) | Graph-based state machine | Role-based agents | Sister team hierarchy via tmux |
 | **Parallelism** | Sequential (one at a time) | Multiple independent sessions | Parallel nodes (v0.2+) | Limited | **8 independent agents** |
 | **Coordination cost** | API calls per Task | Token-heavy (each teammate = separate context) | API + infra (Postgres/Redis) | API + CrewAI platform | **Zero** (YAML + tmux) |
 | **Multi-CLI** | Claude Code only | Claude Code only | Any LLM API | Any LLM API | **5 CLIs** (Claude/Codex/Copilot/Kimi/OpenCode) |
@@ -106,7 +106,7 @@ Most multi-agent frameworks burn API tokens on coordination. Shogun doesn't.
 
 **Full transparency** — Every agent runs in a visible tmux pane. Every instruction, report, and decision is a plain YAML file you can read, diff, and version-control. No black boxes.
 
-**Battle-tested hierarchy** — The Shogun → Karo → Ashigaru chain of command prevents conflicts by design: clear ownership, dedicated files per agent, event-driven communication, no polling.
+**Proven hierarchy** — The Kurara → Oneesan → Imoto-chan chain of command prevents conflicts by design: clear ownership, dedicated files per agent, event-driven communication, no polling.
 
 ---
 
@@ -121,21 +121,21 @@ Most AI coding tools charge per token. Running 8 Opus-grade agents through the A
 | **Usage anxiety** | Every token counts | Unlimited |
 | **Experimentation budget** | Constrained | Deploy freely |
 
-**"Use AI recklessly"** — With flat-rate CLI subscriptions, deploy 8 agents without hesitation. The cost is the same whether they work 1 hour or 24 hours. No more choosing between "good enough" and "thorough" — just run more agents.
+**"Use AI recklessly"** — With flat-rate CLI subscriptions, launch 8 agents without hesitation. The cost is the same whether they work 1 hour or 24 hours. No more choosing between "good enough" and "thorough" — just run more agents.
 
 ### Multi-CLI Support
 
-Shogun isn't locked to one vendor. The system supports 5 CLI tools, each with unique strengths:
+Kurara isn't locked to one vendor. The system supports 5 CLI tools, each with unique strengths:
 
 | CLI | Key Strength | Default Model |
 |-----|-------------|---------------|
-| **Claude Code** | Battle-tested tmux integration, Memory MCP, dedicated file tools (Read/Write/Edit/Glob/Grep) | Claude Sonnet 4.6 |
+| **Claude Code** | Proven tmux integration, Memory MCP, dedicated file tools (Read/Write/Edit/Glob/Grep) | Claude Sonnet 4.6 |
 | **OpenAI Codex** | Sandbox execution, JSONL structured output, `codex exec` headless mode, **per-model `--model` flag** | gpt-5.3-codex / **gpt-5.3-codex-spark** |
 | **GitHub Copilot** | Built-in GitHub MCP, 4 specialized agents (Explore/Task/Plan/Code-review), `/delegate` to coding agent | Claude Sonnet 4.6 |
 | **Kimi Code** | Free tier available, strong multilingual support | Kimi k2 |
 | **OpenCode** | Shared `AGENTS.md` instructions, agent-specific definitions via `--agent`, `/new` context reset, restart-only model changes, deterministic interactive TUI launch, provider-qualified `--model` routing | provider/model |
 
-OpenCode sessions load the agent-specific `.opencode/agents/<agent_id>.md` definition via `--agent` and keep automation resets on `/new`; model changes require a relaunch. Automation uses the repository-provided `config/opencode-tui.json` via `OPENCODE_TUI_CONFIG`, which disables `app_exit` and pins `session_interrupt`/`input_clear` to known bindings. Role boundaries are embedded in the generated agent frontmatter: Shogun can read `queue/reports/*` for oversight but cannot write them, Karo is limited to coordination files plus report aggregation, Ashigaru only touch their own task/report pair, and Gunshi reads ashigaru reports but only writes `gunshi_report.yaml`.
+OpenCode sessions load the agent-specific `.opencode/agents/<agent_id>.md` definition via `--agent` and keep automation resets on `/new`; model changes require a relaunch. Automation uses the repository-provided `config/opencode-tui.json` via `OPENCODE_TUI_CONFIG`, which disables `app_exit` and pins `session_interrupt`/`input_clear` to known bindings. Role boundaries are embedded in the generated agent frontmatter: Kurara can read `queue/reports/*` for oversight but cannot write them, Oneesan is limited to coordination files plus report aggregation, Imoto-chan only touch their own task/report pair, and Sanbo-chan reads Imoto-chan reports but only writes `gunshi_report.yaml`.
 
 A unified instruction build system generates CLI-specific instruction files from shared templates:
 
@@ -160,10 +160,10 @@ One source of truth, zero sync drift. Change a rule once, all CLIs get it.
 
 This is the feature no other framework has.
 
-As Ashigaru execute tasks, they **automatically identify reusable patterns** and propose them as skill candidates. The Karo aggregates these proposals in `dashboard.md`, and you — the Lord — decide what gets promoted to a permanent skill.
+As Imoto-chan execute tasks, they **automatically identify reusable patterns** and propose them as skill candidates. Oneesan aggregates these proposals in `dashboard.md`, and you — Oniichan — decide what gets promoted to a permanent skill.
 
 ```
-Ashigaru finishes a task
+Imoto-chan finishes a task
     ↓
 Notices: "I've done this pattern 3 times across different projects"
     ↓
@@ -172,9 +172,9 @@ Reports in YAML:  skill_candidate:
                      name: "api-endpoint-scaffold"
                      reason: "Same REST scaffold pattern used in 3 projects"
     ↓
-Appears in dashboard.md → You approve → Skill created in .claude/commands/
+Appears in dashboard.md → Oniichan approves → Skill created in .claude/commands/
     ↓
-Any agent can now invoke /api-endpoint-scaffold
+Any sister can now invoke /api-endpoint-scaffold
 ```
 
 Skills grow organically from real work — not from a predefined template library. Your skill set becomes a reflection of **your** workflow.
@@ -280,7 +280,7 @@ cd /mnt/c/tools/multi-agent-shogun
 ### 📱 Mobile Access — Dedicated Android App (Recommended)
 
 <p align="center">
-  <img src="android/screenshots/01_shogun_terminal.png" alt="Shogun Terminal" width="200">
+  <img src="android/screenshots/01_shogun_terminal.png" alt="Kurara Terminal" width="200">
   <img src="android/screenshots/02_agents_grid.png" alt="Agents Grid" width="200">
   <img src="android/screenshots/03_dashboard.png" alt="Dashboard" width="200">
 </p>
@@ -289,7 +289,7 @@ Monitor and command 10 AI agents from your phone with the dedicated Android comp
 
 | Feature | Description |
 |---------|-------------|
-| **Shogun Terminal** | SSH terminal + voice input + special key bar (C-c, C-b, Tab, etc.) |
+| **Kurara Terminal** | SSH terminal + voice input + special key bar (C-c, C-b, Tab, etc.) |
 | **Agents Grid** | 9-pane simultaneous monitoring. Tap to expand fullscreen + send commands |
 | **Dashboard** | Renders dashboard.md with full table text selection/copy |
 | **Rate Limit** | Tap the FAB on the Agents tab to check Claude Max 5h/7d usage with progress bars |
@@ -301,7 +301,7 @@ Monitor and command 10 AI agents from your phone with the dedicated Android comp
 #### Setup
 
 **Prerequisites:**
-- Shogun system running on WSL2 (or Linux server)
+- Kurara system running on WSL2 (or Linux server)
 - SSH server started (`sudo service ssh start`)
 - Phone and server on same network (LAN or [Tailscale](https://tailscale.com/))
 
@@ -323,12 +323,12 @@ Monitor and command 10 AI agents from your phone with the dedicated Android comp
    | SSH Key Path | `/data/data/.../id_ed25519` | Private key path on phone (*1) |
    | SSH Password | `****` | Use if no key available |
    | Project Path | `/mnt/c/tools/multi-agent-shogun` | Server-side project directory |
-   | Shogun Session | `shogun` | tmux session name for Shogun |
+   | Shogun Session | `shogun` | tmux session name for Kurara |
    | Agent Session | `multiagent` | tmux session name for agents |
 
    *1 Transfer your private key to the phone, or use password authentication
 
-3. **Save → Switch to Shogun tab** → auto-connects
+3. **Save → Switch to Kurara tab** → auto-connects
 
 **Using Tailscale (connect from anywhere):**
 
@@ -344,7 +344,7 @@ Install the Tailscale app on your phone, log in with the same account, and use t
 
 **With ntfy notifications:**
 
-See [ntfy setup section](#-8-phone-notifications-ntfy) for push notifications from Karo on task completion.
+See [ntfy setup section](#-8-phone-notifications-ntfy) for push notifications from Oneesan on task completion.
 
 <details>
 <summary>📟 <b>Termux Method (without the Android app)</b> (click to expand)</summary>
@@ -373,7 +373,7 @@ SSH via Termux also works. More limited than the dedicated app, but requires no 
    ```sh
    pkg update && pkg install openssh
    ssh youruser@your-tailscale-ip
-   css    # Connect to Shogun
+   css    # Connect to Kurara
    ```
 4. Open a new Termux window (+ button) for workers:
    ```sh
@@ -495,20 +495,20 @@ Whichever option you chose, **10 AI agents** are automatically launched:
 
 | Agent | Role | Count |
 |-------|------|-------|
-| 🏯 Shogun | Supreme commander — receives your orders | 1 |
-| 📋 Karo | Manager — distributes tasks, quality checks | 1 |
-| ⚔️ Ashigaru | Workers — execute implementation tasks in parallel | 7 |
-| 🧠 Gunshi | Strategist — handles analysis, evaluation, and design | 1 |
+| 🎀 Kurara (Shogun) | Leader sister — receives Oniichan's orders | 1 |
+| 👩 Oneesan (Karo) | Manager sister — distributes tasks, quality checks | 1 |
+| ✨ Imoto-chan (Ashigaru) | Worker sisters — execute implementation tasks in parallel | 7 |
+| 📊 Sanbo-chan (Gunshi) | Analyst sister — handles analysis, evaluation, and design | 1 |
 
 Two tmux sessions are created:
 - `shogun` — connect here to give commands
-- `multiagent` — Karo, Ashigaru, and Gunshi running in the background
+- `multiagent` — Oneesan, Imoto-chan, and Sanbo-chan running in the background
 
 ---
 
 ## How It Works
 
-### Step 1: Connect to the Shogun
+### Step 1: Connect to Kurara
 
 After running `shutsujin_departure.sh`, all agents automatically load their instructions and are ready.
 
@@ -520,18 +520,18 @@ tmux attach-session -t shogun
 
 ### Step 2: Give your first order
 
-The Shogun is already initialized — just give a command:
+Kurara is already initialized — just give a command:
 
 ```
 Research the top 5 JavaScript frameworks and create a comparison table
 ```
 
-The Shogun will:
+Kurara will:
 1. Write the task to a YAML file
-2. Notify the Karo (manager)
+2. Notify Oneesan (manager)
 3. Return control to you immediately — no waiting!
 
-Meanwhile, the Karo distributes tasks to Ashigaru workers for parallel execution.
+Meanwhile, Oneesan distributes tasks to Imoto-chan workers for parallel execution.
 
 ### Step 3: Check progress
 
@@ -541,28 +541,28 @@ Open `dashboard.md` in your editor for a real-time status view:
 ## In Progress
 | Worker | Task | Status |
 |--------|------|--------|
-| Ashigaru 1 | Research React | Running |
-| Ashigaru 2 | Research Vue | Running |
-| Ashigaru 3 | Research Angular | Completed |
+| Imoto-chan 1 | Research React | Running |
+| Imoto-chan 2 | Research Vue | Running |
+| Imoto-chan 3 | Research Angular | Completed |
 ```
 
 ### Project-Unit Operation (Equivalent to Visual Studio "Solution")
 
-Once set up, the Shogun system can handle **multiple projects under the same Shogun**, switching between them as needed. The unit equivalent to a Visual Studio "solution" is `projects/{name}.yaml` + `context/{name}.md`.
+Once set up, the Kurara system can handle **multiple projects under the same Kurara**, switching between them as needed. The unit equivalent to a Visual Studio "solution" is `projects/{name}.yaml` + `context/{name}.md`.
 
 #### 1. Running your first project
 
 ```bash
-# (1) Connect to the Shogun (after shutsujin_departure.sh completes)
+# (1) Connect to Kurara (after shutsujin_departure.sh completes)
 tmux attach-session -t shogun
 
-# (2) Just give the Shogun your command — the project starts automatically
-#     → Shogun writes cmd to queue/shogun_to_karo.yaml and notifies Karo
-#     → Karo distributes to Ashigaru for parallel execution
+# (2) Just give Kurara your command — the project starts automatically
+#     → Kurara writes cmd to queue/shogun_to_karo.yaml and notifies Oneesan
+#     → Oneesan distributes to Imoto-chan for parallel execution
 #     → Results aggregate in dashboard.md
 ```
 
-No explicit "create a project" command is needed. The Shogun attaches a `project:` field to the cmd when relevant, and related files are automatically separated.
+No explicit "create a project" command is needed. Kurara attaches a `project:` field to the cmd when relevant, and related files are automatically separated.
 
 #### 2. Explicitly registering a project (optional, for long-term work)
 
@@ -578,13 +578,13 @@ notes: |
   Project-specific notes, stakeholders, special rules
 ```
 
-The Shogun and Karo reference this file and inject project context when issuing cmds.
+Kurara and Oneesan reference this file and inject project context when issuing cmds.
 
-Detailed project knowledge (requirements, design, past feedback) lives in `context/{name}.md`. When the Shogun issues a cmd related to the project, it automatically references this file.
+Detailed project knowledge (requirements, design, past feedback) lives in `context/{name}.md`. When Kurara issues a cmd related to the project, it automatically references this file.
 
 #### 3. Customizing the agent formation
 
-The agent formation (which CLI each agent uses) lives in `config/settings.yaml`:
+The team formation (which CLI each sister uses) lives in `config/settings.yaml`:
 
 ```yaml
 cli:
@@ -612,7 +612,7 @@ cli:
 OpenRouter setup has two separate pieces:
 
 1. **Model routing** goes in `config/settings.yaml` as shown above (`type: opencode`, `model: openrouter/...`).
-2. **Provider authentication** is configured in OpenCode, not in `settings.yaml`. Run OpenCode once as the same OS user that will launch Shogun, then use `/connect` → `OpenRouter` and paste the API key. OpenCode stores provider credentials in its own user data under that OS user (for example under `~/.local/share/opencode/`; the exact file/database is OpenCode-internal). For headless deployments that use environment-based provider credentials, make sure the shell that runs `shutsujin_departure.sh` has `OPENROUTER_API_KEY` loaded.
+2. **Provider authentication** is configured in OpenCode, not in `settings.yaml`. Run OpenCode once as the same OS user that will launch Kurara, then use `/connect` → `OpenRouter` and paste the API key. OpenCode stores provider credentials in its own user data under that OS user (for example under `~/.local/share/opencode/`; the exact file/database is OpenCode-internal). For headless deployments that use environment-based provider credentials, make sure the shell that runs `shutsujin_departure.sh` has `OPENROUTER_API_KEY` loaded.
 
 Do not put API keys in `config/settings.yaml`, `config/opencode-tui.json`, or `.opencode/agents/*.md`. Those files only describe routing, tmux-safe keybindings, and generated agent definitions.
 
@@ -630,7 +630,7 @@ bash scripts/switch_cli.sh ashigaru3 --type opencode --model openrouter/minimax/
 
 There is no explicit "close project" command. **Issuing the next project's cmd automatically switches context.**
 
-- Pause temporarily: do nothing. Old cmds remain in `queue/` as history, and the Shogun restores state when resumed
+- Pause temporarily: do nothing. Old cmds remain in `queue/` as history, and Kurara restores state when resumed
 - Fully retire: delete `projects/{name}.yaml`, or add an `archived: true` flag
 - Run in parallel: use the `project:` field in cmds to keep concurrent projects distinct
 
@@ -640,13 +640,13 @@ What carries forward to future projects:
 
 | What carries forward | Stored in | Referenced when |
 |----------------------|-----------|-----------------|
-| Lord's preferences and lessons | Memory MCP (persistent) | All agents at Session Start |
+| Oniichan's preferences and lessons | Memory MCP (persistent) | All sisters at Session Start |
 | Project-specific knowledge | `context/{name}.md` | When running the project's cmds |
-| Past cmd history | `queue/shogun_to_karo.yaml` | When the Shogun needs it |
+| Past cmd history | `queue/shogun_to_karo.yaml` | When Kurara needs it |
 | Custom skills | `~/.claude/skills/`, `skills/` | When matching triggers fire |
-| Agent formation | `config/settings.yaml` | At shutsujin startup |
+| Team formation | `config/settings.yaml` | At shutsujin startup |
 
-**Memory MCP** is the heart of "experience." When you tell the Shogun "don't do X next time" or "remember Y," the Shogun records it in Memory MCP, and all future projects see it.
+**Memory MCP** is the heart of "experience." When you tell Kurara "don't do X next time" or "remember Y," Kurara records it in Memory MCP, and all future projects see it.
 
 ### Detailed flow
 
@@ -654,22 +654,22 @@ What carries forward to future projects:
 You: "Research the top 5 MCP servers and create a comparison table"
 ```
 
-The Shogun writes the task to `queue/shogun_to_karo.yaml` and wakes the Karo. Control returns to you immediately.
+Kurara writes the task to `queue/shogun_to_karo.yaml` and wakes Oneesan. Control returns to you immediately.
 
-The Karo breaks the task into subtasks:
+Oneesan breaks the task into subtasks:
 
 | Worker | Assignment |
 |--------|-----------|
-| Ashigaru 1 | Research Notion MCP |
-| Ashigaru 2 | Research GitHub MCP |
-| Ashigaru 3 | Research Playwright MCP |
-| Ashigaru 4 | Research Memory MCP |
-| Ashigaru 5 | Research Sequential Thinking MCP |
+| Imoto-chan 1 | Research Notion MCP |
+| Imoto-chan 2 | Research GitHub MCP |
+| Imoto-chan 3 | Research Playwright MCP |
+| Imoto-chan 4 | Research Memory MCP |
+| Imoto-chan 5 | Research Sequential Thinking MCP |
 
-All 5 Ashigaru research simultaneously. You can watch them work in real time:
+All 5 Imoto-chan research simultaneously. You can watch them work in real time:
 
 <p align="center">
-  <img src="images/company-creed-all-panes.png" alt="Ashigaru agents working in parallel across tmux panes" width="900">
+  <img src="images/company-creed-all-panes.png" alt="Imoto-chan agents working in parallel across tmux panes" width="900">
 </p>
 
 Results appear in `dashboard.md` as they complete.
@@ -684,16 +684,16 @@ One command spawns up to 8 parallel tasks:
 
 ```
 You: "Research 5 MCP servers"
-→ 5 Ashigaru start researching simultaneously
+→ 5 Imoto-chan start researching simultaneously
 → Results in minutes, not hours
 ```
 
 ### 🔄 2. Non-Blocking Workflow
 
-The Shogun delegates instantly and returns control to you:
+Kurara delegates instantly and returns control to you:
 
 ```
-You: Command → Shogun: Delegates → You: Give next command immediately
+You: Command → Kurara: Delegates → You: Give next command immediately
                                        ↓
                        Workers: Execute in background
                                        ↓
@@ -719,7 +719,7 @@ Session 2: AI loads memory on startup
 Agents talk to each other by writing YAML files — like passing notes. **No polling loops, no wasted API calls.**
 
 ```
-Karo wants to wake Ashigaru 3:
+Oneesan wants to wake Imoto-chan 3:
 
 Step 1: Write the message          Step 2: Wake the agent up
 ┌──────────────────────┐           ┌──────────────────────────┐
@@ -736,7 +736,7 @@ Step 1: Write the message          Step 2: Wake the agent up
 
 Step 3: Agent reads its own inbox
 ┌──────────────────────────────────┐
-│ Ashigaru 3 reads ashigaru3.yaml  │
+│ Imoto-chan 3 reads ashigaru3.yaml │
 │ → Finds unread messages          │
 │ → Processes them                 │
 │ → Marks as read                  │
@@ -832,7 +832,7 @@ screenshot:
 ```
 
 ```
-# Just tell the Shogun:
+# Just tell Kurara:
 You: "Check the latest screenshot"
 You: "Look at the last 2 screenshots"
 → AI instantly reads and analyzes your screen captures
@@ -858,7 +858,7 @@ Efficient knowledge sharing through a four-layer context system:
 
 #### Persistent Agent Memory (`memory/MEMORY.md`)
 
-Shogun reads `memory/MEMORY.md` at every session start. It contains Lord's preferences, lessons learned, and cross-session knowledge — written by Shogun, read by Shogun.
+Kurara reads `memory/MEMORY.md` at every session start. It contains Oniichan's preferences, lessons learned, and cross-session knowledge — written by Kurara, read by Kurara.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -897,7 +897,7 @@ privategit push
 The OSS `.gitignore` uses a **whitelist approach** (default: exclude everything, then explicitly allow OSS files). So private files like `memory/MEMORY.md` are automatically excluded without needing explicit `gitignore` entries — just don't add them to the whitelist.
 
 This design enables:
-- Any Ashigaru can work on any project
+- Any Imoto-chan can work on any project
 - Context persists across agent switches
 - Clear separation of concerns
 - Knowledge survives across sessions
@@ -908,9 +908,9 @@ As agents work, their session context (Layer 4) grows, increasing API costs. `/c
 
 Recovery cost after `/clear`: **~6,800 tokens** (42% improved from v1 — CLAUDE.md YAML conversion + English-only instructions reduced token cost by 70%)
 
-1. CLAUDE.md (auto-loaded) → recognizes itself as part of the Shogun System
+1. CLAUDE.md (auto-loaded) → recognizes itself as part of the Kurara System
 2. `tmux display-message -t "$TMUX_PANE" -p '#{@agent_id}'` → identifies its own number
-3. Memory MCP read → restores the Lord's preferences (~700 tokens)
+3. Memory MCP read → restores Oniichan's preferences (~700 tokens)
 4. Task YAML read → picks up the next assignment (~800 tokens)
 
 The key insight: designing **what not to load** is what drives cost savings.
@@ -932,23 +932,23 @@ All projects use the same 7-section template:
 This unified format enables:
 - Quick onboarding for any agent
 - Consistent information management across all projects
-- Easy handoff between Ashigaru workers
+- Easy handoff between Imoto-chan workers
 
 ### 📱 8. Phone Notifications (ntfy)
 
-Two-way communication between your phone and the Shogun — no SSH, no Tailscale, no server needed.
+Two-way communication between your phone and Kurara — no SSH, no Tailscale, no server needed.
 
 | Direction | How it works |
 |-----------|-------------|
-| **Phone → Shogun** | Send a message from the ntfy app → `ntfy_listener.sh` receives it via streaming → auto-ACK reply (`📱受信: {your message}`) sent back to your phone → Shogun processes automatically |
-| **Karo → Phone (direct)** | When Karo updates `dashboard.md`, it sends push notifications directly via `scripts/ntfy.sh` — **Shogun is bypassed** (Shogun is for human interaction, not progress reporting) |
+| **Phone → Kurara** | Send a message from the ntfy app → `ntfy_listener.sh` receives it via streaming → auto-ACK reply (`📱受信: {your message}`) sent back to your phone → Kurara processes automatically |
+| **Oneesan → Phone (direct)** | When Oneesan updates `dashboard.md`, it sends push notifications directly via `scripts/ntfy.sh` — **Kurara is bypassed** (Kurara is for human interaction, not progress reporting) |
 
 ```
-📱 You (from bed)          🏯 Shogun
+📱 You (from bed)          🎀 Kurara
     │                          │
     │  "Research React 19"     │
     ├─────────────────────────►│
-    │    (ntfy message)        │  → Delegates to Karo → Ashigaru work
+    │    (ntfy message)        │  → Delegates to Oneesan → Imoto-chan work
     │                          │
     │  "✅ cmd_042 complete"   │
     │◄─────────────────────────┤
@@ -971,13 +971,13 @@ Two-way communication between your phone and the Shogun — no SSH, no Tailscale
 
 Free, no account required, no server to maintain. Uses [ntfy.sh](https://ntfy.sh) — an open-source push notification service.
 
-> **⚠️ Security:** Your topic name is your password. Anyone who knows it can read your notifications and send messages to your Shogun. Choose a hard-to-guess name and **never share it publicly** (e.g., in screenshots, blog posts, or GitHub commits).
+> **⚠️ Security:** Your topic name is your password. Anyone who knows it can read your notifications and send messages to Kurara. Choose a hard-to-guess name and **never share it publicly** (e.g., in screenshots, blog posts, or GitHub commits).
 
 **Verify it works:**
 
 ```bash
 # Send a test notification to your phone
-bash scripts/ntfy.sh "Test notification from Shogun 🏯"
+bash scripts/ntfy.sh "Test notification from Kurara 🎀"
 ```
 
 If your phone receives the notification, you're all set. If not, check:
@@ -990,10 +990,10 @@ If your phone receives the notification, you're all set. If not, check:
 1. Open the ntfy app on your phone
 2. Tap your subscribed topic
 3. Type a message (e.g., `Research React 19 best practices`) and send
-4. `ntfy_listener.sh` receives it, writes to `queue/ntfy_inbox.yaml`, and wakes the Shogun
-5. The Shogun reads the message and processes it through the normal Karo → Ashigaru pipeline
+4. `ntfy_listener.sh` receives it, writes to `queue/ntfy_inbox.yaml`, and wakes Kurara
+5. Kurara reads the message and processes it through the normal Oneesan → Imoto-chan pipeline
 
-Any text you send becomes a command. Write it like you'd talk to the Shogun — no special syntax needed.
+Any text you send becomes a command. Write it like you'd talk to Kurara — no special syntax needed.
 
 **Manual listener start** (if not using `shutsujin_departure.sh`):
 
@@ -1016,10 +1016,10 @@ The listener automatically reconnects if the connection drops. `shutsujin_depart
 |---------|-----|
 | No notifications on phone | Check topic name matches exactly in `settings.yaml` and ntfy app |
 | Listener not starting | Run `bash scripts/ntfy_listener.sh` in foreground to see errors |
-| Phone → Shogun not working | Verify listener is running: `pgrep -f ntfy_listener.sh` |
-| Messages not reaching Shogun | Check `queue/ntfy_inbox.yaml` — if message is there, Shogun may be busy |
+| Phone → Kurara not working | Verify listener is running: `pgrep -f ntfy_listener.sh` |
+| Messages not reaching Kurara | Check `queue/ntfy_inbox.yaml` — if message is there, Kurara may be busy |
 | "ntfy_topic not configured" error | Add `ntfy_topic: "your-topic"` to `config/settings.yaml` |
-| Duplicate notifications | Normal on reconnect — Shogun deduplicates by message ID |
+| Duplicate notifications | Normal on reconnect — Kurara deduplicates by message ID |
 | Changed topic name but no notifications | The listener must be restarted: `pkill -f ntfy_listener.sh && nohup bash scripts/ntfy_listener.sh &>/dev/null &` |
 
 **Real-world notification screenshots:**
@@ -1029,14 +1029,14 @@ The listener automatically reconnects if the connection drops. `shutsujin_depart
   &nbsp;&nbsp;
   <img src="images/screenshots/masked/ntfy_cmd043_progress.jpg" alt="Progress notification" width="300">
 </p>
-<p align="center"><i>Left: Bidirectional phone ↔ Shogun communication · Right: Real-time progress report from Ashigaru</i></p>
+<p align="center"><i>Left: Bidirectional phone ↔ Kurara communication · Right: Real-time progress report from Imoto-chan</i></p>
 
 <p align="center">
   <img src="images/screenshots/masked/ntfy_bloom_oc_test.jpg" alt="Command completion notification" width="300">
   &nbsp;&nbsp;
   <img src="images/screenshots/masked/ntfy_persona_eval_complete.jpg" alt="8-agent parallel completion" width="300">
 </p>
-<p align="center"><i>Left: Command completion notification · Right: All 8 Ashigaru completing in parallel</i></p>
+<p align="center"><i>Left: Command completion notification · Right: All 8 Imoto-chan completing in parallel</i></p>
 
 > *Note: Topic names shown in screenshots are examples. Use your own unique topic name.*
 
@@ -1067,42 +1067,42 @@ Each tmux pane shows the agent's current task directly on its border:
 - **Working**: `ashigaru1 Sonnet+T VF requirements` — agent name, model (with Thinking indicator), and task summary
 - **Idle**: `ashigaru2 Sonnet` — model name only, no task
 - **Display names**: Sonnet, Opus, Haiku, Codex, Spark — `+T` suffix = Extended Thinking enabled
-- Updated automatically by the Karo when assigning or completing tasks
+- Updated automatically by Oneesan when assigning or completing tasks
 - Glance at all 9 panes to instantly know who's doing what
 
-### 🔊 10. Shout Mode (Battle Cries)
+### 🔊 10. Shout Mode (Completion Shouts)
 
-When an Ashigaru completes a task, it shouts a personalized battle cry in the tmux pane — a visual reminder that your army is working hard.
+When an Imoto-chan completes a task, she shouts a personalized completion message in the tmux pane — a visual reminder that your team is working hard.
 
 ```
 ┌ ashigaru1 (Sonnet) ──────────┬ ashigaru2 (Sonnet) ──────────┐
 │                               │                               │
-│  ⚔️ 足軽1号、先陣切った！     │  🔥 足軽2号、二番槍の意地！   │
-│  八刃一志！                   │  八刃一志！                   │
+│  ✨ 妹1号、やったよお兄ちゃん！ │  🔥 妹2号、負けないよ！       │
+│  くらら姉妹、がんばるよ！     │  くらら姉妹、がんばるよ！     │
 │  ❯                            │  ❯                            │
 └───────────────────────────────┴───────────────────────────────┘
 ```
 
 **How it works:**
 
-The Karo writes an `echo_message` field in each task YAML. After completing all work (report + inbox notification), the Ashigaru runs `echo` as its **final action**. The message stays visible above the `❯` prompt.
+Oneesan writes an `echo_message` field in each task YAML. After completing all work (report + inbox notification), the Imoto-chan runs `echo` as its **final action**. The message stays visible above the `❯` prompt.
 
 ```yaml
-# In the task YAML (written by Karo)
+# In the task YAML (written by Oneesan)
 task:
   task_id: subtask_001
   description: "Create comparison table"
-  echo_message: "🔥 足軽1号、先陣を切って参る！八刃一志！"
+  echo_message: "🔥 妹1号、やったよお兄ちゃん！くらら姉妹、がんばるよ！"
 ```
 
 **Shout mode is the default.** To disable (saves API tokens on the echo call):
 
 ```bash
-./shutsujin_departure.sh --silent    # No battle cries
-./shutsujin_departure.sh             # Default: shout mode (battle cries enabled)
+./shutsujin_departure.sh --silent    # No completion shouts
+./shutsujin_departure.sh             # Default: shout mode (completion shouts enabled)
 ```
 
-Silent mode sets `DISPLAY_MODE=silent` as a tmux environment variable. The Karo checks this when writing task YAMLs and omits the `echo_message` field.
+Silent mode sets `DISPLAY_MODE=silent` as a tmux environment variable. Oneesan checks this when writing task YAMLs and omits the `echo_message` field.
 
 ---
 
@@ -1131,7 +1131,7 @@ Silent mode sets `DISPLAY_MODE=silent` as a tmux environment variable. The Karo 
        │
        ▼
  ┌──────────────────┐
- │  ntfy → Shogun   │  AI auto-categorize, parse dates, set priorities
+ │  ntfy → Kurara   │  AI auto-categorize, parse dates, set priorities
  └────────┬─────────┘
           │
           ▼
@@ -1166,8 +1166,8 @@ Silent mode sets `DISPLAY_MODE=silent` as a tmux environment variable. The Karo 
 **Q: How is this different from other task apps?**
 A: You never open an app. Just speak. Zero friction. Most task apps fail because people stop opening them. SayTask removes that step entirely.
 
-**Q: Can I use SayTask without the full Shogun system?**
-A: SayTask is a feature of Shogun. Shogun also works as a standalone multi-agent development platform — you get both capabilities in one system.
+**Q: Can I use SayTask without the full Kurara system?**
+A: SayTask is a feature of Kurara. Kurara also works as a standalone multi-agent development platform — you get both capabilities in one system.
 
 **Q: What's the Frog 🐸?**
 A: Every morning, AI picks your hardest task — the one you'd rather avoid. Tackle it first (the "Eat the Frog" method) or ignore it. Your call.
@@ -1183,7 +1183,7 @@ A: AI does its best to categorize and schedule it. You can always refine later �
 
 ### SayTask vs cmd Pipeline
 
-Shogun has two complementary task systems:
+Kurara has two complementary task systems:
 
 | Capability | SayTask (Voice Layer) | cmd Pipeline (AI Execution) |
 |---|:-:|:-:|
@@ -1202,16 +1202,16 @@ SayTask handles personal productivity (capture → schedule → remind). The cmd
 
 | Agent | Default Model | Thinking | Role |
 |-------|--------------|----------|------|
-| Shogun | Opus | **Enabled (high)** | Strategic advisor to the Lord. Use `--shogun-no-thinking` for relay-only mode |
-| Karo | Sonnet | Enabled | Task distribution, simple QC, dashboard management |
-| Gunshi | Opus | Enabled | Deep analysis, design review, architecture evaluation |
-| Ashigaru 1–7 | Sonnet 4.6 | Enabled | Implementation: code, research, file operations |
+| Kurara (Shogun) | Opus | **Enabled (high)** | Leader sister advising Oniichan. Use `--shogun-no-thinking` for relay-only mode |
+| Oneesan (Karo) | Sonnet | Enabled | Task distribution, simple QC, dashboard management |
+| Sanbo-chan (Gunshi) | Opus | Enabled | Deep analysis, design review, architecture evaluation |
+| Imoto-chan 1–7 (Ashigaru) | Sonnet 4.6 | Enabled | Implementation: code, research, file operations |
 
 **Thinking control**: Set `thinking: true/false` per agent in `config/settings.yaml`. When `thinking: false`, the agent starts with `MAX_THINKING_TOKENS=0` to disable Extended Thinking. Pane borders show `+T` suffix when Thinking is enabled (e.g., `Sonnet+T`, `Opus+T`).
 
 **Live model switching**: Use `/shogun-model-switch` to change any agent's CLI type, model, or Thinking setting without restarting the entire system. See the Skills section for details.
 
-The system routes work by **cognitive complexity** at two levels: **Agent routing** (Ashigaru for L1–L3, Gunshi for L4–L6) and **Model routing within Ashigaru** via `capability_tiers` (see Dynamic Model Routing below).
+The system routes work by **cognitive complexity** at two levels: **Agent routing** (Imoto-chan for L1–L3, Sanbo-chan for L4–L6) and **Model routing within Imoto-chan** via `capability_tiers` (see Dynamic Model Routing below).
 
 ### Bloom's Taxonomy → Agent Routing
 
@@ -1219,14 +1219,14 @@ Tasks are classified using Bloom's Taxonomy and routed to the appropriate **agen
 
 | Level | Category | Description | Routed To |
 |-------|----------|-------------|-----------|
-| L1 | Remember | Recall facts, copy, list | **Ashigaru** |
-| L2 | Understand | Explain, summarize, paraphrase | **Ashigaru** |
-| L3 | Apply | Execute procedures, implement known patterns | **Ashigaru** |
-| L4 | Analyze | Compare, investigate, deconstruct | **Gunshi** |
-| L5 | Evaluate | Judge, critique, recommend | **Gunshi** |
-| L6 | Create | Design, build, synthesize new solutions | **Gunshi** |
+| L1 | Remember | Recall facts, copy, list | **Imoto-chan** |
+| L2 | Understand | Explain, summarize, paraphrase | **Imoto-chan** |
+| L3 | Apply | Execute procedures, implement known patterns | **Imoto-chan** |
+| L4 | Analyze | Compare, investigate, deconstruct | **Sanbo-chan** |
+| L5 | Evaluate | Judge, critique, recommend | **Sanbo-chan** |
+| L6 | Create | Design, build, synthesize new solutions | **Sanbo-chan** |
 
-The Karo assigns each subtask a Bloom level and routes it to the appropriate agent. L1–L3 tasks go to Ashigaru for parallel execution; L4–L6 tasks go to the Gunshi for deeper analysis. Simple L4 tasks (e.g., small code review) may still go to Ashigaru when the Karo judges it appropriate.
+Oneesan assigns each subtask a Bloom level and routes it to the appropriate agent. L1–L3 tasks go to Imoto-chan for parallel execution; L4–L6 tasks go to Sanbo-chan for deeper analysis. Simple L4 tasks (e.g., small code review) may still go to Imoto-chan when Oneesan judges it appropriate.
 
 ### Task Dependencies (blockedBy)
 
@@ -1240,11 +1240,11 @@ task:
   description: "Integrate the API client built by subtask_010a"
 ```
 
-When a blocking task completes, the Karo automatically unblocks dependent tasks and assigns them to available Ashigaru. This prevents idle waiting and enables efficient pipelining of dependent work.
+When a blocking task completes, Oneesan automatically unblocks dependent tasks and assigns them to available Imoto-chan. This prevents idle waiting and enables efficient pipelining of dependent work.
 
 ### Dynamic Model Routing (capability_tiers)
 
-Beyond agent-level routing, you can configure **model-level routing within the Ashigaru tier**. Define a `capability_tiers` table in `config/settings.yaml` mapping each model to its maximum Bloom level:
+Beyond agent-level routing, you can configure **model-level routing within the Imoto-chan tier**. Define a `capability_tiers` table in `config/settings.yaml` mapping each model to its maximum Bloom level:
 
 ```yaml
 capability_tiers:
@@ -1279,7 +1279,7 @@ Run `/shogun-bloom-config` after setup to generate your optimal `capability_tier
 
 > "Don't execute tasks mindlessly. Always keep 'fastest × best output' in mind."
 
-The Shogun System is built on five core principles:
+The Kurara System is built on five core principles:
 
 | Principle | Description |
 |-----------|-------------|
@@ -1295,14 +1295,14 @@ These principles are documented in detail: **[docs/philosophy.md](docs/philosoph
 
 ## Design Philosophy
 
-### Why a hierarchy (Shogun → Karo → Ashigaru)?
+### Why a hierarchy (Kurara → Oneesan → Imoto-chan)?
 
-1. **Instant response**: The Shogun delegates immediately, returning control to you
-2. **Parallel execution**: The Karo distributes to multiple Ashigaru simultaneously
+1. **Instant response**: Kurara delegates immediately, returning control to you
+2. **Parallel execution**: Oneesan distributes to multiple Imoto-chan simultaneously
 3. **Single responsibility**: Each role is clearly separated — no confusion
-4. **Scalability**: Adding more Ashigaru doesn't break the structure
-5. **Fault isolation**: One Ashigaru failing doesn't affect the others
-6. **Unified reporting**: Only the Shogun communicates with you, keeping information organized
+4. **Scalability**: Adding more Imoto-chan doesn't break the structure
+5. **Fault isolation**: One Imoto-chan failing doesn't affect the others
+6. **Unified reporting**: Only Kurara communicates with you, keeping information organized
 
 ### Why Mailbox System?
 
@@ -1329,12 +1329,12 @@ The `-t "$TMUX_PANE"` is required. Omitting it returns the active pane's value (
 
 Model names are stored as `@model_name` and current task summaries as `@current_task` — both displayed in the `pane-border-format`. Even if Claude Code overwrites the pane title, these user options persist.
 
-### Why only the Karo updates dashboard.md
+### Why only Oneesan updates dashboard.md
 
 1. **Single writer**: Prevents conflicts by limiting updates to one agent
-2. **Information aggregation**: The Karo receives all Ashigaru reports, so it has the full picture
+2. **Information aggregation**: Oneesan receives all Imoto-chan reports, so she has the full picture
 3. **Consistency**: All updates pass through a single quality gate
-4. **No interruptions**: If the Shogun updated it, it could interrupt the Lord's input
+4. **No interruptions**: If Kurara updated it, it could interrupt Oniichan's input
 
 ---
 
@@ -1342,7 +1342,7 @@ Model names are stored as `@model_name` and current task summaries as `@current_
 
 No skills are included out of the box. Skills emerge organically during operation — you approve candidates from `dashboard.md` as they're discovered.
 
-Invoke skills with `/skill-name`. Just tell the Shogun: "run /skill-name".
+Invoke skills with `/skill-name`. Just tell Kurara: "run /skill-name".
 
 ### Included Skills (committed to repo)
 
@@ -1370,13 +1370,13 @@ Skills in `.claude/commands/` are excluded from version control by design:
 **2. How skills are discovered**
 
 ```
-Ashigaru notices a pattern during work
+Imoto-chan notices a pattern during work
     ↓
 Appears in dashboard.md under "Skill Candidates"
     ↓
-You (the Lord) review the proposal
+You (Oniichan) review the proposal
     ↓
-If approved, instruct the Karo to create the skill
+If approved, instruct Oneesan to create the skill
 ```
 
 Skills are user-driven. Automatic creation would lead to unmanageable bloat — only keep what you find genuinely useful.
@@ -1438,13 +1438,13 @@ This system manages **all white-collar tasks**, not just code. Projects can live
 You: "Research the top 5 AI coding assistants and compare them"
 
 What happens:
-1. Shogun delegates to Karo
-2. Karo assigns:
-   - Ashigaru 1: Research GitHub Copilot
-   - Ashigaru 2: Research Cursor
-   - Ashigaru 3: Research Claude Code
-   - Ashigaru 4: Research Codeium
-   - Ashigaru 5: Research Amazon CodeWhisperer
+1. Kurara delegates to Oneesan
+2. Oneesan assigns:
+   - Imoto-chan 1: Research GitHub Copilot
+   - Imoto-chan 2: Research Cursor
+   - Imoto-chan 3: Research Claude Code
+   - Imoto-chan 4: Research Codeium
+   - Imoto-chan 5: Research Amazon CodeWhisperer
 3. All 5 research simultaneously
 4. Results compiled in dashboard.md
 ```
@@ -1455,10 +1455,10 @@ What happens:
 You: "Prepare a PoC for the project on this Notion page: [URL]"
 
 What happens:
-1. Karo fetches Notion content via MCP
-2. Ashigaru 2: Lists items to verify
-3. Ashigaru 3: Investigates technical feasibility
-4. Ashigaru 4: Drafts a PoC plan
+1. Oneesan fetches Notion content via MCP
+2. Imoto-chan 2: Lists items to verify
+3. Imoto-chan 3: Investigates technical feasibility
+4. Imoto-chan 4: Drafts a PoC plan
 5. All results compiled in dashboard.md — meeting prep done
 ```
 
@@ -1470,8 +1470,8 @@ What happens:
 
 ```yaml
 # config/settings.yaml
-language: ja   # Samurai Japanese only
-language: en   # Samurai Japanese + English translation
+language: ja   # Japanese only
+language: en   # Japanese + English translation
 ```
 
 ### Screenshot integration
@@ -1482,7 +1482,7 @@ screenshot:
   path: "/mnt/c/Users/YourName/Pictures/Screenshots"
 ```
 
-Tell the Shogun "check the latest screenshot" and it reads your screen captures for visual context. (`Win+Shift+S` on Windows.)
+Tell Kurara "check the latest screenshot" and she reads your screen captures for visual context. (`Win+Shift+S` on Windows.)
 
 ### ntfy (Phone Notifications)
 
@@ -1575,11 +1575,11 @@ Priority: Token > Basic > None. If neither is set, no auth headers are sent (bac
 ./shutsujin_departure.sh -c
 ./shutsujin_departure.sh --clean
 
-# Battle formation: All Ashigaru on Opus (max capability, higher cost)
+# Full power: All Imoto-chan on Opus (max capability, higher cost)
 ./shutsujin_departure.sh -k
 ./shutsujin_departure.sh --kessen
 
-# Silent mode: Disable battle cries (saves API tokens on echo calls)
+# Silent mode: Disable completion shouts (saves API tokens on echo calls)
 ./shutsujin_departure.sh -S
 ./shutsujin_departure.sh --silent
 
@@ -1587,7 +1587,7 @@ Priority: Token > Basic > None. If neither is set, no auth headers are sent (bac
 ./shutsujin_departure.sh -t
 ./shutsujin_departure.sh --terminal
 
-# Shogun relay-only mode: Disable Shogun's thinking (cost savings)
+# Kurara relay-only mode: Disable Kurara's thinking (cost savings)
 ./shutsujin_departure.sh --shogun-no-thinking
 
 # Show help
@@ -1634,8 +1634,8 @@ Running `first_setup.sh` automatically adds these aliases to `~/.bashrc`:
 
 ```bash
 alias csst='cd /mnt/c/tools/multi-agent-shogun && ./shutsujin_departure.sh'
-alias css='tmux attach-session -t shogun'      # Connect to Shogun
-alias csm='tmux attach-session -t multiagent'  # Connect to Karo + Ashigaru
+alias css='tmux attach-session -t shogun'      # Connect to Kurara
+alias csm='tmux attach-session -t multiagent'  # Connect to Oneesan + Imoto-chan
 ```
 
 To apply aliases: run `source ~/.bashrc` or restart your terminal (PowerShell: `wsl --shutdown` then reopen).
@@ -1659,10 +1659,10 @@ multi-agent-shogun/
 │  └──────────────────────────────────────────────────┘
 │
 ├── instructions/             # Agent behavior definitions
-│   ├── shogun.md             # Shogun instructions
-│   ├── karo.md               # Karo instructions
-│   ├── ashigaru.md           # Ashigaru instructions
-│   ├── gunshi.md             # Gunshi (strategist) instructions
+│   ├── shogun.md             # Kurara (leader) instructions
+│   ├── karo.md               # Oneesan (manager) instructions
+│   ├── ashigaru.md           # Imoto-chan (worker) instructions
+│   ├── gunshi.md             # Sanbo-chan (analyst) instructions
 │   └── cli_specific/         # CLI-specific tool descriptions
 │       ├── claude_tools.md   # Claude Code tools & features
 │       └── copilot_tools.md  # GitHub Copilot CLI tools & features
@@ -1689,12 +1689,12 @@ multi-agent-shogun/
 │   └── <project_id>.yaml    # Full info per project (clients, tasks, Notion links, etc.)
 │
 ├── queue/                    # Communication files
-│   ├── shogun_to_karo.yaml   # Shogun → Karo commands
+│   ├── shogun_to_karo.yaml   # Kurara → Oneesan commands
 │   ├── ntfy_inbox.yaml       # Incoming messages from phone (ntfy)
 │   ├── inbox/                # Per-agent inbox files
-│   │   ├── shogun.yaml       # Messages to Shogun
-│   │   ├── karo.yaml         # Messages to Karo
-│   │   └── ashigaru{1-8}.yaml # Messages to each Ashigaru
+│   │   ├── shogun.yaml       # Messages to Kurara
+│   │   ├── karo.yaml         # Messages to Oneesan
+│   │   └── ashigaru{1-8}.yaml # Messages to each Imoto-chan
 │   ├── tasks/                # Per-worker task files
 │   └── reports/              # Worker reports
 │
@@ -1765,7 +1765,7 @@ current_tasks:
     status: in_progress
 ```
 
-This separation lets the Shogun System coordinate across multiple external projects while keeping project details out of version control.
+This separation lets the Kurara System coordinate across multiple external projects while keeping project details out of version control.
 
 ---
 
@@ -1829,7 +1829,7 @@ tmux attach-session -t multiagent
 # Method 1: Run claude directly in the pane
 claude --model opus --dangerously-skip-permissions
 
-# Method 2: Karo force-restarts via respawn-pane (also fixes nesting)
+# Method 2: Oneesan force-restarts via respawn-pane (also fixes nesting)
 tmux respawn-pane -t shogun:0.0 -k 'claude --model opus --dangerously-skip-permissions'
 ```
 
@@ -1846,11 +1846,11 @@ tmux respawn-pane -t shogun:0.0 -k 'claude --model opus --dangerously-skip-permi
 
 | Command | Description |
 |---------|-------------|
-| `tmux attach -t shogun` | Connect to the Shogun |
+| `tmux attach -t shogun` | Connect to Kurara |
 | `tmux attach -t multiagent` | Connect to workers |
 | `Ctrl+B` then `0`–`8` | Switch panes |
 | `Ctrl+B` then `d` | Detach (agents keep running) |
-| `tmux kill-session -t shogun` | Stop the Shogun session |
+| `tmux kill-session -t shogun` | Stop the Kurara session |
 | `tmux kill-session -t multiagent` | Stop the worker session |
 
 ### Mouse Support
@@ -1867,32 +1867,32 @@ Even if you're not comfortable with keyboard shortcuts, you can switch, scroll, 
 
 ---
 
-## What's New in v5.1.0 — Karo as Traffic Controller
+## What's New in v5.1.0 — Oneesan as Traffic Controller
 
-> **Keep the manager out of the work queue.** Karo now has a sharper management boundary: it keeps the workflow moving, delegates execution to Ashigaru, routes review and RCA to Gunshi, and owns E2E only as plan reviewer and final judge.
+> **Keep the manager out of the work queue.** Oneesan now has a sharper management boundary: she keeps the workflow moving, delegates execution to Imoto-chan, routes review and RCA to Sanbo-chan, and owns E2E only as plan reviewer and final judge.
 
-- **Karo is traffic control** — Karo acknowledges cmds, decomposes work, tracks dependencies, updates dashboard/daily logs, and makes final acceptance decisions without becoming the execution bottleneck
-- **Gunshi owns review work** — quality review, evidence review, RCA, adoption/drop decisions, architecture/design review, and deploy blocker classification are routed to Gunshi
-- **Ashigaru execute** — implementation, shell execution, deploy steps, and test commands are delegated to Ashigaru by default
-- **E2E responsibility clarified** — Karo reviews the E2E plan, checks prerequisites, and makes the final pass/fail judgment; direct execution is now an explicit exception that must be justified in reports
+- **Oneesan is traffic control** — Oneesan acknowledges cmds, decomposes work, tracks dependencies, updates dashboard/daily logs, and makes final acceptance decisions without becoming the execution bottleneck
+- **Sanbo-chan owns review work** — quality review, evidence review, RCA, adoption/drop decisions, architecture/design review, and deploy blocker classification are routed to Sanbo-chan
+- **Imoto-chan execute** — implementation, shell execution, deploy steps, and test commands are delegated to Imoto-chan by default
+- **E2E responsibility clarified** — Oneesan reviews the E2E plan, checks prerequisites, and makes the final pass/fail judgment; direct execution is now an explicit exception that must be justified in reports
 - **Generated instructions refreshed** — Claude, Codex, Copilot, Kimi, and OpenCode instruction outputs were rebuilt from the updated role definitions
 - **Android local caches ignored** — `.android-user/`, `.gradle-user/`, and `.toolchain/` are now ignored under `android/`
 
 ## What's New in v5.0.0 — OpenCode First-Class Support
 
-> **Run the Shogun formation on OpenCode.** OpenCode is now a first-class CLI alongside Claude Code, Codex, Copilot, and Kimi, with generated role agents, tmux-safe startup, provider-qualified model routing, and VPS-verified end-to-end operation.
+> **Run the Kurara formation on OpenCode.** OpenCode is now a first-class CLI alongside Claude Code, Codex, Copilot, and Kimi, with generated role agents, tmux-safe startup, provider-qualified model routing, and VPS-verified end-to-end operation.
 
-- **OpenCode agent generation** — `scripts/build_instructions.sh` generates `.opencode/agents/*.md` for Shogun, Karo, Ashigaru 1-7, and Gunshi from the same shared instruction source used by other CLIs
+- **OpenCode agent generation** — `scripts/build_instructions.sh` generates `.opencode/agents/*.md` for Kurara, Oneesan, Imoto-chan 1-7, and Sanbo-chan from the same shared instruction source used by other CLIs
 - **Role boundary permissions** — `config/opencode-permissions.yaml` drives OpenCode frontmatter permissions so each role can read/write only the files it owns
 - **tmux-safe OpenCode launch** — `lib/cli_adapter.sh` launches OpenCode with `--agent <agent_id>` and repository-pinned `OPENCODE_TUI_CONFIG=config/opencode-tui.json` for deterministic keybindings
 - **Provider-qualified models** — `settings.yaml` can route OpenCode agents to models such as `opencode/qwen3.6-plus-free` or `openrouter/openai/gpt-4o-mini`
-- **Verified on CI and VPS** — Multi-CLI CI passes on Ubuntu/macOS, and a VPS smoke test confirmed Shogun → Karo → `dashboard.md` execution using OpenCode
+- **Verified on CI and VPS** — Multi-CLI CI passes on Ubuntu/macOS, and a VPS smoke test confirmed Kurara → Oneesan → `dashboard.md` execution using OpenCode
 
 <details>
 <summary><b>What was in v3.5 — Dynamic Model Routing</b></summary>
 
 - **Bloom Dynamic Model Routing** — `capability_tiers` in `config/settings.yaml` maps each model to its Bloom ceiling. L1-L3 → Spark, L4 → Sonnet 4.6, L5 → Sonnet 4.6 + extended thinking, L6 → Opus. Routing happens without agent restarts — the system finds the right idle agent by model capability
-- **Sonnet 4.6 as the new standard** — SWE-bench 79.6%, only 1.2pp below Opus 4.6. Gunshi downgraded Opus → Sonnet 4.6. All Ashigaru default to Sonnet 4.6. One YAML line change, no restarts required
+- **Sonnet 4.6 as the new standard** — SWE-bench 79.6%, only 1.2pp below Opus 4.6. Sanbo-chan downgraded Opus → Sonnet 4.6. All Imoto-chan default to Sonnet 4.6. One YAML line change, no restarts required
 - **`/shogun-model-list` skill** — Complete reference table: all CLI tools × models × subscriptions × Bloom max level. Updated for Sonnet 4.6 and Spark positioning
 - **`/shogun-bloom-config` skill** — Interactive configurator: answer 2 questions about your subscriptions → get ready-to-paste `capability_tiers` YAML
 
@@ -1901,13 +1901,13 @@ Even if you're not comfortable with keyboard shortcuts, you can switch, scroll, 
 <details>
 <summary><b>What was in v3.4 — Bloom→Agent Routing, E2E Tests, Stop Hook</b></summary>
 
-- **Bloom → Agent routing** — Replaced dynamic model switching with agent-level routing. L1–L3 tasks go to Ashigaru, L4–L6 tasks go to Gunshi. No more mid-session `/model opus` promotions
-- **Gunshi (軍師) as first-class agent** — Strategic advisor on pane 8. Handles deep analysis, design review, architecture evaluation, and complex QC
+- **Bloom → Agent routing** — Replaced dynamic model switching with agent-level routing. L1–L3 tasks go to Imoto-chan, L4–L6 tasks go to Sanbo-chan. No more mid-session `/model opus` promotions
+- **Sanbo-chan (Gunshi) as first-class agent** — Analyst sister on pane 8. Handles deep analysis, design review, architecture evaluation, and complex QC
 - **E2E test suite (19 tests, 7 scenarios)** — Mock CLI framework simulates agent behavior in isolated tmux sessions
 - **Stop hook inbox delivery** — Claude Code agents automatically check inbox at turn end via `.claude/settings.json` Stop hook. Eliminates the `send-keys` interruption problem
-- **Model defaults updated** — Karo: Opus → Sonnet. Gunshi: Opus (deep reasoning). Ashigaru: Sonnet (uniform tier)
+- **Model defaults updated** — Oneesan: Opus → Sonnet. Sanbo-chan: Opus (deep reasoning). Imoto-chan: Sonnet (uniform tier)
 - **Escape escalation disabled for Claude Code** — Phase 2 escalation was interrupting active Claude Code turns; Stop hook handles delivery instead
-- **Codex/OpenCode startup integration** — Codex uses `get_startup_prompt()` / `get_startup_prompt_arg()` for Session Start recovery, while OpenCode loads agent definitions through generated `.opencode/agents/*.md` files
+- **Codex/OpenCode startup integration** — Codex uses `get_startup_prompt()` / `get_startup_prompt_arg()` for session start recovery, while OpenCode loads agent definitions through generated `.opencode/agents/*.md` files
 - **YAML slimming utility** — `scripts/slim_yaml.sh` archives read messages and terminal commands, supports current top-level and legacy task YAML, and keeps `--dry-run` filesystem-safe for queue cleanup audits
 
 </details>
@@ -1917,17 +1917,17 @@ Even if you're not comfortable with keyboard shortcuts, you can switch, scroll, 
 > **New model, same YAML.** Add `model: gpt-5.3-codex-spark` to any Codex agent in `settings.yaml`.
 
 - **Codex `--model` flag support** — `build_cli_command()` now passes `settings.yaml` model config to the Codex CLI via `--model`. Supports `gpt-5.3-codex-spark` and any future Codex models
-- **Separate rate limit** — Spark runs on its own rate limit quota, independent of GPT-5.3-Codex. Run both models in parallel across different Ashigaru to **double your effective throughput**
+- **Separate rate limit** — Spark runs on its own rate limit quota, independent of GPT-5.3-Codex. Run both models in parallel across different Imoto-chan to **double your effective throughput**
 - **Startup display** — `shutsujin_departure.sh` now shows the actual model name (e.g., `codex/gpt-5.3-codex-spark`) instead of the generic effort level
 
 ## What's New in v3.0 — Multi-CLI
 
-> **Shogun is no longer Claude-only.** Mix and match 4 AI coding CLIs in a single army.
+> **Kurara is no longer Claude-only.** Mix and match 4 AI coding CLIs in a single team.
 
 - **Multi-CLI as first-class architecture** — `lib/cli_adapter.sh` dynamically selects CLI per agent. Change one line in `settings.yaml` to swap any worker between Claude Code, Codex, Copilot, or Kimi
 - **OpenAI Codex CLI integration** — GPT-5.3-codex with `--dangerously-bypass-approvals-and-sandbox` for true autonomous execution. `--no-alt-screen` makes agent activity visible in tmux
 - **CLI bypass flag discovery** — `--full-auto` is NOT fully automatic (it's `-a on-request`). Documented the correct flags for all 4 CLIs
-- **Hybrid architecture** — Command layer (Shogun + Karo) stays on Claude Code for Memory MCP and mailbox integration. Worker layer (Ashigaru) is CLI-agnostic
+- **Hybrid architecture** — Command layer (Kurara + Oneesan) stays on Claude Code for Memory MCP and mailbox integration. Worker layer (Imoto-chan) is CLI-agnostic
 - **Community-contributed CLI adapters** — Thanks to [@yuto-ts](https://github.com/yuto-ts) (cli_adapter.sh), [@circlemouth](https://github.com/circlemouth) (Codex support), [@koba6316](https://github.com/koba6316) (task routing)
 
 <details>
@@ -1936,10 +1936,10 @@ Even if you're not comfortable with keyboard shortcuts, you can switch, scroll, 
 - **ntfy bidirectional communication** — Send commands from your phone, receive push notifications for task completion
 - **SayTask notifications** — Streak tracking, Eat the Frog, behavioral psychology-driven motivation
 - **Pane border task display** — See each agent's current task at a glance on the tmux pane border
-- **Shout mode** (default) — Ashigaru shout personalized battle cries after completing tasks. Disable with `--silent`
+- **Shout mode** (default) — Imoto-chan shout personalized completion messages after completing tasks. Disable with `--silent`
 - **Agent self-watch + escalation (v3.2)** — Each agent monitors its own inbox file with `inotifywait` (zero-polling, instant wake-up). Fallback: `tmux send-keys` short nudge (text/Enter sent separately for Codex CLI). 3-phase escalation: standard nudge (0-2min) → Escape×2+nudge (2-4min) → `/clear` force reset (4min+). Linux FS symlink resolves WSL2 9P inotify issues.
 - **Agent self-identification** (`@agent_id`) — Stable identity via tmux user options, immune to pane reordering
-- **Battle mode** (`-k` flag) — All-Opus formation for maximum capability
+- **Full power mode** (`-k` flag) — All-Opus formation for maximum capability
 - **Task dependency system** (`blockedBy`) — Automatic unblocking of dependent tasks
 
 </details>
@@ -1957,8 +1957,8 @@ This project is funded by sponsors. Your support keeps it free and actively main
 | Tier | Perks |
 |------|-------|
 | ☕ $5/mo | Name in sponsors section |
-| 🏯 $25/mo | Early access to new releases |
-| ⚔️ $100/mo | Priority issue/PR response (48h) |
+| 🎀 $25/mo | Early access to new releases |
+| ✨ $100/mo | Priority issue/PR response (48h) |
 | 🎖️ $500/mo | Monthly 1:1 consultation |
 | 🏛️ $1,000/mo | Logo in README + quarterly strategy session |
 

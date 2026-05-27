@@ -129,7 +129,7 @@ For Ashigaru: Model set at startup via settings.yaml. Runtime switching via `typ
 | Prompt detection | Unknown prompt format (not `❯`) |
 | Non-interactive pipe | Unconfirmed (`copilot -p` undocumented) |
 
-For the 将軍 system, tmux compatibility is a **high-risk area** requiring dedicated testing.
+For the くらら system, tmux compatibility is a **high-risk area** requiring dedicated testing.
 
 ### Potential Workarounds
 - `!` prefix for shell commands may bypass TUI input issues
@@ -154,7 +154,7 @@ For the 将軍 system, tmux compatibility is a **high-risk area** requiring dedi
 
 Copilot CLI uses auto-compaction at 95% token limit. No `/clear` equivalent exists.
 
-For the 将軍 system, if Copilot CLI is integrated:
+For the くらら system, if Copilot CLI is integrated:
 1. Auto-compaction handles most cases automatically
 2. `/compact` can be sent via send-keys if tmux integration works
 3. Session state preserved through compaction (unlike `/clear` which resets)
