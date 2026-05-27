@@ -861,7 +861,7 @@ with open(f,'w') as fh: yaml.safe_dump(d, fh, default_flow_style=False, allow_un
 NINJA_EOF
 
     echo ""
-    echo -e "                                    \033[1;35m「 がんばろう！勝利を掴め！ 」\033[0m"
+    echo -e "                                    \033[1;35m「 みんなで最高の成果出そうね！✨ 」\033[0m"
     echo ""
     echo -e "                               \033[0;36m[ASCII Art: syntax-samurai/ryu - CC0 1.0 Public Domain]\033[0m"
     echo ""
@@ -1074,7 +1074,7 @@ echo "  │    すぐに命令を開始できます。                          
 echo "  └──────────────────────────────────────────────────────────┘"
 echo ""
 echo "  ════════════════════════════════════════════════════════════"
-echo "   がんばろう！勝利を掴め！ (Ganbarou! Seize victory!)"
+echo "   みんなで最高の成果出そうね！✨ (Let's do our best together!)"
 echo "  ════════════════════════════════════════════════════════════"
 echo ""
 
